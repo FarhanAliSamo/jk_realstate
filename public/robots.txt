@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /products?product_name=*
+Disallow: /assets/*
+Disallow: /captcha?*
+Sitemap: https://www.perfectlife.applethosting3.com/sitemap.xml

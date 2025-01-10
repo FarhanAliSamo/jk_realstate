@@ -1395,7 +1395,7 @@
         </div>
 </div>
 <!-- Header End -->
-
+ 
     <!-- Property List Start -->
     <div class="container-xxl py-5">
         <div class="container">

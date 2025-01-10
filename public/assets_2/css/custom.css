@@ -48,3 +48,15 @@
     margin-top: 120px;
     backdrop-filter: blur(4px);
 }
+.p_detail_container{
+    margin-top:25px
+}
+.p_detail_container p{
+    font-weight:600;
+    line-height:10px
+}
+
+.my-quote{
+    padding:10px 10px;
+    padding-left:50px !important;
+}

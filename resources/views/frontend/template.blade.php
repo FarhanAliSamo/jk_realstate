@@ -872,22 +872,20 @@
 
 
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                            <a href="/products" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+
+                            
                             <div class="dropdown-menu rounded-0 m-0">
-                                <a href="property-list.html" class="dropdown-item">Property List</a>
-                                <a href="property-type.html" class="dropdown-item">Property Type</a>
-                                <a href="property-agent.html" class="dropdown-item">Property Agent</a>
+                                <a href="/products" class="dropdown-item">All</a>
+                                @foreach(getTopHeaderIndustries() as $key => $f_ind)
+                               
+                                <a href="/product-category/{{ $f_ind->slug }}" class="dropdown-item">{{ $f_ind->name }}</a>
+                            @endforeach
+                              
                             </div>
                         </div>
 
-
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                            <div class="dropdown-menu rounded-0 m-0">
-                                <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                                <a href="404.html" class="dropdown-item">404 Error</a>
-                            </div>
-                        </div>
+ 
                         <a href="/contact-us" class="nav-item nav-link">Contact</a>
                     </div>
                      
@@ -911,9 +909,34 @@
                 <div class="row g-5">
                     <div class="col-lg-3 col-md-6">
                         <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $basic_details->phone_number }}</p>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $basic_details->address }}</p>
+                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+{{ $basic_details->phone_number }}</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $basic_details->email }}</p>
+
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Quick Links</h5>
+                        <a class="btn btn-link text-white-50" href="/about-us">About Us</a>
+                        <a class="btn btn-link text-white-50" href="/contact-us">Contact Us</a>
+                        <a class="btn btn-link text-white-50" href="/products">Properties</a>
+                        <a class="btn btn-link text-white-50" href="#">Privacy Policy</a>
+                        <a class="btn btn-link text-white-50" href="#">Terms & Condition</a>
+                    </div>
+                  
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Newsletter</h5>
+                        <p style="font-size: 14px">Subscribe to our newsletter for the latest updates, exclusive offers, and property insights delivered straight to your inbox.</p>
+                        <div class="position-relative mx-auto" style="max-width: 400px;">
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Your email">
+                            <button type="button"
+                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                        </div>
+                    </div>
+                  
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="text-white mb-4">Follow Us</h5>
+                        <p style="font-size: 14px">Stay connected with us on social media for updates, news, and property insights. Follow us today!</p>
                         <div class="d-flex pt-2">
 
                             <a class="btn btn-outline-light btn-social" href="{{ $basic_details->facebook_url }}"><i
@@ -923,75 +946,22 @@
                                     class="fab fa-linkedin-in"></i></a>
                            
                                     <a class="btn btn-outline-light btn-social" href="{{ $basic_details->instagram_url }}"><i
-                                    class="fa-brands fa-instagram"></i></a>
+                                    class="fab fa-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Quick Links</h5>
-                        <a class="btn btn-link text-white-50" href="/about-us">About Us</a>
-                        <a class="btn btn-link text-white-50" href="/">Contact Us</a>
-                        <a class="btn btn-link text-white-50" href="/all">Our Services</a>
-                        <a class="btn btn-link text-white-50" href="">Privacy Policy</a>
-                        <a class="btn btn-link text-white-50" href="">Terms & Condition</a>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Photo Gallery</h5>
-                        <div class="row g-2 pt-2">
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="/assets_2/img/property-1.jpg"
-                                    alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="/assets_2/img/property-2.jpg"
-                                    alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="/assets_2/img/property-3.jpg"
-                                    alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="/assets_2/img/property-4.jpg"
-                                    alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="/assets_2/img/property-5.jpg"
-                                    alt="">
-                            </div>
-                            <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="/assets_2/img/property-6.jpg"
-                                    alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-                        <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                                placeholder="Your email">
-                            <button type="button"
-                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="container">
                 <div class="copyright">
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
+                        <div class="col-12 text-center mb-3 mb-md-0">
+                            &copy; JK Properties, All Right Reserved.
 
                             <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            Designed By <a class="border-bottom" href="https://www.diginotive.com/">Diginotive</a>
                         </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
-                            </div>
-                        </div>
+                      
                     </div>
                 </div>
             </div>

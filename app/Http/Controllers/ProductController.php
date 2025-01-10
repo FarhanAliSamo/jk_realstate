@@ -27,7 +27,16 @@ class ProductController extends Controller
 
         $industry = Industry::where('id', $product->industry_id)->first();
 
-        $category_products = Products::where('industry_id', $industry->id)->join('products_details', 'products_details.product_id', 'products.id')->select('products.*', 'products_details.short_description')->orderBy('products.id', 'ASC')->paginate('12');
+        $category_products = Products::where('industry_id', $industry->id)->join('products_details', 'products_details.product_id', 'products.id')->select('products.*',
+        'products_details.description',
+        'products_details.price',
+        'products_details.address',
+        'products_details.bed',
+        'products_details.bath',
+        'products_details.size')->orderBy('products.id', 'ASC')->paginate('12');
+
+
+    
 
         $basic_details = BasicDetails::first();
         $industries = Industry::get();
@@ -177,9 +186,14 @@ class ProductController extends Controller
             $industryIds = array_merge($industryIds, $childIds);
         }
 
-        $category_products = Products::whereIn('industry_id', $industryIds)->join('products_details', 'products_details.product_id', 'products.id')->select('products.*', 'products_details.description')->orderBy('products.id', 'DESC')->paginate('12');
-
-
+        $category_products = Products::whereIn('industry_id', $industryIds)->join('products_details', 'products_details.product_id', 'products.id')->select('products.*',
+            'products_details.description',
+            'products_details.price',
+            'products_details.address',
+            'products_details.bed',
+            'products_details.bath',
+            'products_details.size')->orderBy('products.id', 'DESC')->paginate('12');
+ 
         $captcha_img = captcha_img();
         $meta_info = [];
         $meta_info['title'] = $industry->meta_title;
@@ -199,12 +213,10 @@ class ProductController extends Controller
             $meta_info['keyword'] = $meta_tags['keyword'];
             $meta_info['content'] = $meta_tags['content'];
         }
+ 
 
-        $productess = Products::limit(4)->get();
+        //  dd($industry->name);
 
-
-        //  dd($category_products->all());
-
-        return view('frontend.category_products', compact('basic_details', 'captcha_img', 'category_products', 'all_industries', 'industries', 'seo_content', 'industry', 'meta_info', 'productess'));
+        return view('frontend.category_products', compact('basic_details', 'captcha_img', 'category_products', 'all_industries', 'industries', 'seo_content', 'industry', 'meta_info',  ));
     }
 }

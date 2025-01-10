@@ -378,14 +378,14 @@ function get_blogthumb_url_500($folder,$url,$is_optimized = 0){
 }
 function getTopHeaderIndustries()
 {
-    $industries = App\Models\Industry::orderBy('id','ASC')->limit(7)->get();
-    $products = App\Models\Products::all();
-    $data = [
-        'industries' => $industries,
-        'products' => $products
-        ];
+    $industries = App\Models\Industry::orderBy('id','ASC')->get();
+    // $products = App\Models\Products::all();
+    // $data = [
+    //     'industries' => $industries,
+    //     'products' => $products
+    //     ];
     
-    return $data;
+    return $industries;
 }
 
 
